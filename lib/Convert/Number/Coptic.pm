@@ -8,7 +8,7 @@ BEGIN
 	use strict;
 	use vars qw($VERSION @CNumbers %CNumbers);
 
-	$VERSION = '0.12';
+	$VERSION = "0.13";
 
 	require 5.000;
 
@@ -89,13 +89,13 @@ sub _fromCoptic
 {
 	$_ = $_[0]->{number};
 	s/̄//og;
-	s/̱/000/g;
-	s/͇/000000/g;
-	s/([α-ρς-ωϛϲ])/$CNumbers{$1}/g;
+	s/̱/000/og;
+	s/͇/000000/og;
+	s/([α-ρς-ωϛϲ])/$CNumbers{$1}/og;
 
 	my $out = 0;
-	s/(\d0+)/$out += $1/eg;
-	s/(\d)$/$out += $1/e;
+	s/(\d0+)/$out += $1/oge;
+	s/(\d)$/$out += $1/oe;
 
 	$out;
 }

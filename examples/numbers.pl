@@ -111,12 +111,6 @@ my $n = new Convert::Number::Coptic;
 my $count = 1;
 foreach ( @testNumbers ) {
 	printf "%02i) ", $count++;
-
-	if ( /(.*?) = (\d+)/ ) {
-		print "<$1> ";
-		$_ = $2;
-	}
-
 	$n->number ( $_ );
 	my $number = $n->convert;
 	print "$_ => $number => ", $n->convert ( $number ), ".\n";
@@ -127,7 +121,7 @@ __END__
 
 =head1 NAME
 
-numbers.pl - Conversion Demonstration for 95 numbers.
+numbers.pl - Conversion demonstration for 95 numbers.
 
 =head1 SYNOPSIS
 
